@@ -12,7 +12,12 @@ def counting(input):
         else:
             uppercount = uppercount
             lowercount = lowercount
+    print("UPPERCASE: " , uppercount , "  LOWERCASE: " , lowercount)
     return uppercount,lowercount
+counting("ASSERTION TEST FOR PRINT STATEMENT")
+counting("ASSERTIONTESTFORPRINTSTATEMENT")
+counting("assertiontestforprintstatement")
+
 
 def test_counting():
     assert counting("ThIsHasALOtofcase issues") == (6,17)
