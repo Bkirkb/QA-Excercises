@@ -1,3 +1,5 @@
+import pytest
+
 def counting(input):
 
     uppercount = 0
@@ -10,8 +12,11 @@ def counting(input):
         else:
             uppercount = uppercount
             lowercount = lowercount
-    print("Uppercase letters :" , uppercount, "Lowercase letters :" , lowercount)
-    return uppercount, lowercount
+    return uppercount,lowercount
 
-counting("ThIsHasALOtofcase issues")
-counting("    THIS IS A TEST")
+def test_counting():
+    assert counting("ThIsHasALOtofcase issues") == (6,17)
+    assert counting("") == (0,0)
+    assert counting("THISLIKESDGHOISUTHGN") == (20,0)
+    assert counting("all lower") == (0,8)
+
