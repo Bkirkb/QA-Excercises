@@ -1,9 +1,10 @@
 <html>
     <head>
         <title>Simple form</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
-        <div class='form'>
+        <div class='form' style="background: rgb(149, 149, 233); width: 50%; margin: 0 auto;">
             <form method='POST' action=''>
                 {{ form.hidden_tag() }}
                 {{ form.first_name.label }} {{ form.first_name }}
