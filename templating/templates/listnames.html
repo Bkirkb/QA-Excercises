@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+{% for b in listnames %}
+{% if "b" in b %}
+<p> {{b}}</p>
+{% else %}
+<p> No B in Name </p>
+{% endif %}
+{% endfor %}
+{% endblock body %}   
