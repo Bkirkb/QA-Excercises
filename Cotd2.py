@@ -24,4 +24,5 @@ def test_counting():
     assert counting("") == (0,0)
     assert counting("THISLIKESDGHOISUTHGN") == (20,0)
     assert counting("all lower") == (0,8)
+    assert counting(None) == (0,0)
 
