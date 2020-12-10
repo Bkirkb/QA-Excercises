@@ -23,8 +23,6 @@ class TestBase(TestCase):
       
         #Will be called before every test
 
-  
-
         #Create table
         db.create_all()
 
@@ -65,9 +63,9 @@ class TestAdd(TestBase):
     def test_add_post(self):
         response = self.client.post(
             url_for('home'),
-            data = dict(name="MrMan")
+            data = dict(name="RandomMan")
         )
-        self.assertIn(b'MrMan',response.data)
+        self.assertIn(b'RandomMan',response.data)
 
 # Test Updating
 class TestUpdate(TestBase):

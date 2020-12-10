@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config ['SQLAlchemy_DATABASE_URI'] = "sqlite:///"
+app.config['SQLALchemy_DATABASE_URI'] = "sqlite:///"
 
 db = SQLAlchemy(app)
 
@@ -12,28 +12,28 @@ class Register(db.Model):
 
 db.create_all()
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', methods=["GET","POST"])
 def home():
     if request.form:
         person = Register(name=request.form.get("name"))
         db.session.add(person)
         db.session.commit()
     registrees = Register.query.all()
-    return render_template("home.html", registerees=registrees)
+    return render_template("home.html", registrees=registrees)
 
-@app.route('/update', methods=["POST"])
+@app.route("/update", methods=["POST"])
 def update():
     person = Register.query.filter_by(name=request.form.get("oldname")).first()
     person.name = request.form.get("newname")
     db.session.commit()
-    return redirect('/')
+    return redirect("/")
 
-@app.route('/delete', methods=["POST"])
+@app.route("/delete", methods=["POST"])
 def delete():
     person = Register.query.filter_by(name=request.form.get("name")).first()
     db.session.delete(person)
     db.session.commit()
-    return redirect('/')
+    return redirect("/")
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True, host='0.0.0.0')
