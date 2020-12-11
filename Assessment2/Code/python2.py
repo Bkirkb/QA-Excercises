@@ -76,8 +76,11 @@ def two(input):
 	# What happens if you multiply a string by a number?
 
 def three(a):
-	
-	return newoutput
+	aa = int(str(a)*2)
+	aaa = int(str(a)*3)
+	aaaa = int(str(a)*4)
+
+	return a+aa+aaa+aaaa
 
 	# <QUESTION 4>
 
@@ -244,16 +247,18 @@ def eight(input,  a):
 	# There are no hints for this question.
 
 def nine(string1, string2):
-	output=""
-	for c in string1:
-		if c in string2:
-			output+= c
-		else:
-			output = output
-	if output in string2 or output in string1:
-		return True
-	else:
-		return False
+		
+	if len(string1) >= len(string2):
+		input1 = string1
+		input2 = string2
+	else: 
+		input2 = string1
+		input1 = string2
+
+	for i in input2:
+		if i not in input1:
+			return False
+	return True 
 
 
 	# <QUESTION 10>
@@ -272,4 +277,5 @@ def nine(string1, string2):
 	# Think about nesting for loops.
 
 def ten(X,Y):
+
 	return []
